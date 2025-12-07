@@ -1,0 +1,18 @@
+---
+// import Welcome from '../components/Welcome.astro';
+import Todo from '../components/todo.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<div id="container">
+		<div id="background-wrapper"></div>
+		<main>
+			<section id="app">
+				<!-- <img id="logo" src={logo.src} alt="" fetchpriority="high" /> -->
+				<h1> TO DO </h1>
+				<Todo />
+			</section>
+		</main>
+	</div>
+</Layout>

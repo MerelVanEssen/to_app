@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+:root {
+  --color-primary: #630f8e;
+  --color-secondary: #c267ff;
+  --color-background: linear-gradient(154deg, rgb(99, 15, 142), rgb(62, 70, 183));
+  --color-text: #ffffff;
+  --color-accent: #E46FF4;
+  --color-button-pink: #fd3e81;
+  --color-button-mint: #36f2aa;
+  --font-family: Rubik, serif;
+  --font-feature-settings: normal;
+  --font-size: 16px;
+  --font-variation-settings: normal;
+  --font-weight: 400;
+}
+
