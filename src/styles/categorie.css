@@ -1,0 +1,48 @@
+
+#categorie-input-container {
+	border:#ccc 1px solid;
+	border-radius: 4px;
+	padding: 5px;
+    display: flex;          /* belangrijk! */
+    flex-direction: row;    /* horizontaal */
+    align-items: center;    /* verticale centrering */
+    gap: 10px;              /* ruimte tussen inputs en button */
+}
+
+#input-container {
+    position: relative;
+    display: flex;          /* inputs naast elkaar */
+	flex-direction: column;
+    flex: 1;                /* neemt zoveel mogelijk ruimte in */
+    gap: 10px;
+}
+
+#input-container:hover #dropdown-categorie {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+/* DROPDOWN CATEGORIE */
+#dropdown-categorie {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-5px);
+  transition: 0.2s;
+}
+
+.dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #eee;
+}

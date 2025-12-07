@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import "../styles/style.css";
+import "../../public/script/to_do.js";
 ---
 
 <!doctype html>
@@ -11,9 +11,16 @@ import "../styles/style.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>VRCafe Basics</title>
+		
 	</head>
 	<body>
 		<slot />
+		<script type="module">
+			import { main } from '../script/main.js';
+			if (typeof window !== "undefined") {
+				main();
+			}
+			</script>
 	</body>
 </html>
 

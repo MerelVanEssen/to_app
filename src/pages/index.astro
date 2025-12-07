@@ -1,18 +1,18 @@
 ---
 // import Welcome from '../components/Welcome.astro';
-import Todo from '../components/todo.astro';
+import ToDoFrame from '../components/todo_frame.astro';
 import Layout from '../layouts/Layout.astro';
+import CategorieFrame from '../components/categorie_frame.astro';
 ---
 
 <Layout>
-	<div id="container">
-		<div id="background-wrapper"></div>
-		<main>
-			<section id="app">
-				<!-- <img id="logo" src={logo.src} alt="" fetchpriority="high" /> -->
-				<h1> TO DO </h1>
-				<Todo />
+	<section id="app">
+		<h1> --TO DO-- </h1>
+		<section id="categories">
+			<section id="frame_wrapper">
+				<CategorieFrame />
+				<ToDoFrame />
 			</section>
-		</main>
-	</div>
+		</section>
+	</section>
 </Layout>
