@@ -14,12 +14,13 @@ export class ToDo {
 			this.toDoList.push(new Task("to do lijst vullen", "geen"))
 			localStorage.setItem("to_do_list", JSON.stringify(this.toDoList));
 		} else {
-			this.toDoList = JSON.parse(localStorage.getItem("to_do_list")).map(t => new Task(t.task, t.completed, t.isInnerTask));
+			this.toDoList = JSON.parse(localStorage.getItem("to_do_list")).map(t => new Task(t.task, t.categorie, t.completed));
 		}
 	}
 
-	addTask(task, categorie = 'geen') {
-		this.toDoList.push(new Task(task, categorie));
+	addTask(taskInput, categorieInput='geen') {
+		const newTask = new Task(taskInput, categorieInput)
+		this.toDoList.push(newTask);
 		this.saveToLocalStorage();
 	}
 	markTaskCompleted(index) {
@@ -35,9 +36,10 @@ export class ToDo {
 	saveToLocalStorage() {
 		localStorage.setItem("to_do_list", JSON.stringify(this.toDoList));
 	}
-	getTasks() {
-		return this.toDoList;
-	}
+
+	getTasks() { return this.toDoList; }
+	getCategories() { return this.categorieList; }
+
 	removeTask(index) {
 		if (index === undefined || index === null) {
 			console.log("no index given");

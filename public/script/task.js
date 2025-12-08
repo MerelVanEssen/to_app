@@ -1,21 +1,15 @@
 
 export class Task {
-	constructor(task, categorie, completed = false, isInnerTask = false) {
+	constructor(task, categorie, completed=false) {
 		this.task = task;
-		this.categorie = categorie;
+		if (categorie)
+			this.categorie = categorie;
+		else
+			this.categorie = "geen"
 		this.completed = completed;
-		this.innerTasks = [];
-		this.isInnerTask = isInnerTask;
 	}
-	addInnerTask(innerTask) {
-		if (this.isInnerTask)
-			return;
-		this.innerTasks.push({ task: innerTask, completed: false, innerTask: true });
-	}
-	removeInnerTask(index) {
-		this.innerTasks.splice(index, 1);
-	}
-	getInnerTasks() {
-		return this.innerTasks;
-	}
+	getTask() { return this.task }
+	getCategorie() { 
+		console.log(this)
+		return this.categorie }
 }

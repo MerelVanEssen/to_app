@@ -2,29 +2,27 @@
 .frame {
   background-color: var(--color-background);
   width: 400px;
-  height: 300px; /* voeg een vaste hoogte toe of gebruik min/max */
+  height: 300px;
   display: flex;
-  justify-content: center; /* horizontaal centreren */
-  align-items: center;     /* verticaal centreren */
+  justify-content: center;
+  align-items: center;
   border-radius: 15px;
   padding: 10px;
-  box-sizing: border-box;  /* belangrijk: padding telt mee in grootte */
+  box-sizing: border-box;
 }
 
-/* Binnenin de frame */
 .innerframe {
   background-color: white;
   display: flex;
-  flex-direction: column;   /* elementen onder elkaar */
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  
-  width: 100%;    /* vult de frame horizontaal */
-  height: 100%;   /* vult de frame verticaal */
-  border-radius: 10px; /* optioneel, afgeronde binnenkant */
-  padding: 15px;
-  box-sizing: border-box; /* zorgt dat padding niet buiten frame komt */
+  width: 95%;
+  height: 95%;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .container {

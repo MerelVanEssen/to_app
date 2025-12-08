@@ -7,18 +7,19 @@ import "../styles/global.css";
 	<section class="innerframe">
 
 		<div id="category-filter">
-			<select id="category-select">
-				<option value="Alles">Alles</option>
-				<option value="Werk">Werk</option>
-				<option value="School">School</option>
-				<option value="Persoonlijk">Persoonlijk</option>
-			</select>
-			<button id="selectCatBtn">Selecteer</button>
+			<select id="category-select"></select>
+			<button id="select-cat-btn">Selecteer</button>
 		</div>
-
-		<ul class="list" id="todo-list"></ul>
-		<ul class="list" id="finished-list"></ul>
-		
+		<div class="lists-container">
+            <div class="list-block">
+                <h3 class="list-title">To do</h3>
+				<ul class="list" id="todo-list"></ul>
+			</div>
+			<div class="list-block">
+                <h3 class="list-title">Klaar</h3>	
+				<ul class="list" id="finished-list"></ul>
+			</div>
+		</div>
 		<button id="nieuwe-taak">Nieuwe taak</button>
 	</section>
 </section>

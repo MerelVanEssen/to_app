@@ -1,43 +1,35 @@
+import { switchSides } from "./kubus.js";
 
 let listenerAdded = false
 
-export function openTask(todo, li) {
-	const taskObj = todo.getTasks()[li.dataset.index];
+function openTask(todo, li) {
+	console.log(li)
+	const tasks = todo.getTasks();
+	const taskObj = tasks[li.dataset.index]
+	console.log(li.dataset.index, "tasks:", tasks, "tasksObj", taskObj)
 	const task = document.getElementById("current-task");
-	const subtask = document.getElementById('current-subtask')
 	const cat = document.getElementById("current-cat");
-	if (!task || !subtask || !cat) return
+	if (!task || !cat) return
 
-	task.textContent = taskObj.textContent
-	cat.textContent = taskObj.textContent
-	
-	taskObj.getInnerTasks().forEach((innerTaskObj, index) => {
-		const innerLi = document.createElement("li");
-		innerLi.textContent = innerTaskObj.task;
-		if (innerTaskObj.completed) {
-			innerLi.style.textDecoration = "line-through";
-		} else {
-			innerLi.addEventListener("click", () => {
-				innerTaskObj.completed = true;
-				innerLi.style.textDecoration = "line-through";
-			});
-		}
-		subtask.appendChild(innerLi);
-	});
+	task.textContent = taskObj.task
+	if (taskObj.categorie)
+		cat.textContent = taskObj.categorie
+	else
+		cat.textContent = "geen"
 }
 
-function addListeners() {
+function addListeners(to_do) {
 	const back_btn = document.getElementById("terug-menu")
 	if (back_btn) {
 		back_btn.addEventListener("click", () => {
-			turnRight();
+			switchSides(-90, to_do);
 		});
 	}
-
 	listenerAdded = true
 }
 
-export function loadTaskSide() {
+export function loadTaskSide(to_do, li) {
 	if (!listenerAdded)
-		addListeners()
+		addListeners(to_do)
+	openTask(to_do, li)
 }

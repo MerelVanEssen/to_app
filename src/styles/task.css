@@ -8,10 +8,12 @@
 
 /* TASK ITEMS */
 .clickable-item {
-    list-style: none;           /* geen bullets */
-    padding: 5px 5px;         /* ruimte rondom tekst */
-    cursor: pointer;            /* handje bij hover */
+    list-style: none;
+    cursor: pointer;
     transition: background 0.2s, transform 0.1s;
+	font-family: var(--font-family);
+	font-weight: var(--font-weight);
+	font-size: var(--font-size);
 }
 
 .clickable-item:hover {
