@@ -1,34 +1,21 @@
 
-#todolist {
+/* todo list */
+.list {
 	font-family: var(--font-family);
 	font-weight: var(--font-weight);
 	font-size: var(--font-size);
 }
 
-#task-window {
-	width: 100%;
-	max-width: 400px;
-	margin: 0 auto;
-	padding: 20px;
-	background-color: var(--color-secondary);
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-
 /* TASK ITEMS */
 .clickable-item {
     list-style: none;           /* geen bullets */
-    padding: 10px 15px;         /* ruimte rondom tekst */
-    margin: 5px 0;              /* ruimte tussen items */
-    background-color: #f0f0f0;  /* grijze achtergrond */
-    border: 1px solid #ccc;     /* rand */
-    border-radius: 5px;         /* afgeronde hoeken */
+    padding: 5px 5px;         /* ruimte rondom tekst */
     cursor: pointer;            /* handje bij hover */
     transition: background 0.2s, transform 0.1s;
 }
 
 .clickable-item:hover {
-    background-color: #e0e0e0;  /* donkerder bij hover */
+    background-color: var(--color-secondary);  /* donkerder bij hover */
     transform: scale(1.02);     /* klein zoom effect */
 }
+

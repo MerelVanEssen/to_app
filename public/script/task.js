@@ -1,5 +1,5 @@
 
-export default class Task {
+export class Task {
 	constructor(task, categorie, completed = false, isInnerTask = false) {
 		this.task = task;
 		this.categorie = categorie;

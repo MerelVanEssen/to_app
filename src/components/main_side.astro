@@ -1,0 +1,41 @@
+---
+import logo from '../assets/logo.webp';
+import "../styles/global.css";
+---
+
+<section class="frame" id="main-side">
+	<section class="innerframe">
+
+		<div id="category-filter">
+			<select id="category-select">
+				<option value="Alles">Alles</option>
+				<option value="Werk">Werk</option>
+				<option value="School">School</option>
+				<option value="Persoonlijk">Persoonlijk</option>
+			</select>
+			<button id="selectCatBtn">Selecteer</button>
+		</div>
+
+		<ul class="list" id="todo-list"></ul>
+		<ul class="list" id="finished-list"></ul>
+		
+		<button id="nieuwe-taak">Nieuwe taak</button>
+	</section>
+</section>
+
+<script>
+	
+	const selectBtn = document.getElementById("selectCatBtn")
+	if (selectBtn) {
+		selectBtn.addEventListener("click", () => {
+			const selected = document.getElementById("category-select")
+			if (!selected) return
+  			/* 
+				1. get input category
+				2. get task from category
+				3. split on to do and ready
+				3. show tasks in todo-list / finished
+			*/
+		});
+	}
+</script>

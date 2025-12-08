@@ -1,18 +1,12 @@
 ---
 // import Welcome from '../components/Welcome.astro';
-import ToDoFrame from '../components/todo_frame.astro';
 import Layout from '../layouts/Layout.astro';
-import CategorieFrame from '../components/categorie_frame.astro';
+import Kubus from '../components/kubus.astro'
 ---
 
 <Layout>
 	<section id="app">
 		<h1> --TO DO-- </h1>
-		<section id="categories">
-			<section id="frame_wrapper">
-				<CategorieFrame />
-				<ToDoFrame />
-			</section>
-		</section>
+		<Kubus />
 	</section>
 </Layout>

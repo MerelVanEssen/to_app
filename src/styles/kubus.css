@@ -1,0 +1,64 @@
+/* Alle zijde van kubus */
+.frame {
+  background-color: var(--color-background);
+  width: 400px;
+  height: 300px; /* voeg een vaste hoogte toe of gebruik min/max */
+  display: flex;
+  justify-content: center; /* horizontaal centreren */
+  align-items: center;     /* verticaal centreren */
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;  /* belangrijk: padding telt mee in grootte */
+}
+
+/* Binnenin de frame */
+.innerframe {
+  background-color: white;
+  display: flex;
+  flex-direction: column;   /* elementen onder elkaar */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  
+  width: 100%;    /* vult de frame horizontaal */
+  height: 100%;   /* vult de frame verticaal */
+  border-radius: 10px; /* optioneel, afgeronde binnenkant */
+  padding: 15px;
+  box-sizing: border-box; /* zorgt dat padding niet buiten frame komt */
+}
+
+.container {
+  width: clamp(300px, 40vw, 600px);
+  height: clamp(300px, 40vw, 600px);
+  position: relative;
+  margin: 100px auto;
+  perspective: 1000px;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+}
+
+.face {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--color-background);
+  border: 2px solid var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.front  { transform: translateZ(150px); }
+.back   { transform: rotateY(180deg) translateZ(150px); }
+.right  { transform: rotateY(90deg) translateZ(150px); }
+.left   { transform: rotateY(-90deg) translateZ(150px); }
+.top    { transform: rotateX(90deg) translateZ(150px); }
+.bottom { transform: rotateX(-90deg) translateZ(150px); }
