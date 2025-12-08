@@ -3,26 +3,29 @@ import "../styles/global.css";
 import MainKubus from '../components/main_side.astro';
 import NewTask from '../components/new_side.astro';
 import Task from '../components/task_side.astro'
+import Edit from "../components/edit_side.astro"
 import logo from '../assets/logo.webp';
 ---
 
 <div class="container">
-  <div id="cube" class="cube">
-    <div class="face front">
-		<MainKubus />
+	<div id="cube" class="cube">
+		<div class="face front">
+			<MainKubus />
+		</div>
+		<div class="face back">
+			<Edit />
+		</div>
+		<div class="face right">
+			<NewTask/>
+		</div>
+		<div class="face left">
+			<Task />
+		</div>
+		<div class="face top">
+			
+		</div>
+		<div class="face bottom">
+			
+		</div>
 	</div>
-    <div class="face back">
-		2
-	  </div>
-  <div class="face right">
-		<NewTask/>
-	</div>
-    <div class="face left">
-      <Task />
-    </div>
-    <div class="face top">
-		
-	</div>
-    <div class="face bottom"></div>
-  </div>
 </div>

@@ -3,6 +3,7 @@
 @import "./categorie.css";
 @import "./task.css";
 @import "./kubus.css";
+@import "./main.css";
 
 :root {
   --color-primary: #630f8e;
@@ -17,5 +18,6 @@
   --font-size: 16px;
   --font-variation-settings: normal;
   --font-weight: 400;
+  --cube-size: clamp(300px, 50vw, 600px);
 }
 

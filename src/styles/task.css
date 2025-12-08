@@ -1,23 +1,19 @@
 
-/* todo list */
-.list {
-	font-family: var(--font-family);
-	font-weight: var(--font-weight);
-	font-size: var(--font-size);
+/*
+TASK
+-task-block
+-current-task
+-task-block
+-current-cat
+-terug-menu
+*/
+
+.task-block {
+	background-color: var(--color-secondary);
+	width: 100%;
+	padding: 2px 0px 0px 5px;
 }
 
-/* TASK ITEMS */
-.clickable-item {
-    list-style: none;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-	font-family: var(--font-family);
-	font-weight: var(--font-weight);
-	font-size: var(--font-size);
+.info-field {
+	width: 100%;
 }
-
-.clickable-item:hover {
-    background-color: var(--color-secondary);  /* donkerder bij hover */
-    transform: scale(1.02);     /* klein zoom effect */
-}
-

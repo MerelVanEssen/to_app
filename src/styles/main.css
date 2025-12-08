@@ -1,68 +1,94 @@
-.button-row {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 20px;
+
+/*
+main
+-column-wrapper
+--categorie-select
+--select-cat-btn
+-column-wrapper
+--list-block
+--list-title
+--list
+-list-block
+--list-title
+--list
+-nieuwe-taak
+*/
+
+.column-wrapper {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
 }
 
-.big-btn {
-    background: #73c9f5;
-    padding: 15px 40px;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    border: 10px solid #d34792;
+#categorie-select {
+	background-color: white;
 }
 
-.big-btn:hover {
-    opacity: 0.85;
+#select-cat-btn {
+	background-color: white;
 }
 
 .lists-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    margin-bottom: 40px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
+	gap: 20px;
+	width: 100%; 
 }
 
 .list-block {
-    width: 45%;
+	flex: 1;
+	background-color: white;
 }
 
 .list-title {
-    background: #d34792;
-    padding: 10px;
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    font-weight: bold;
+	background-color: var(--color-secondary);
+	padding: 5px;
+	font-size: 12px;
+	font-weight: bold;
 }
 
-.list-block ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
-.list-block li {
-    margin: 6px 0;
-    font-size: 18px;
+/* TASK ITEMS */
+.clickable-item {
+	list-style: none;
+	cursor: pointer;
+	transition: background 0.2s, transform 0.1s;
+	font-family: var(--font-family);
+	font-weight: var(--font-weight);
+	font-size: var(--font-size);
+	margin: 5px;
 }
 
-/* Nieuwe taak knop */
-.new-task-btn {
-    margin-top: 40px;
-    float: right;
-    background: #73c9f5;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
+.clickable-item:hover {
+	background-color: var(--color-secondary);
+	transform: scale(1.02); 
 }
 
-.new-task-btn:hover {
-    opacity: 0.85;
+.task-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	background-color: var(--color-secondary);
+}
+
+.task-text {
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.task-buttons {
+	display: flex;
+	gap: 5px;
 }

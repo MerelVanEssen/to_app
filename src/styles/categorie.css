@@ -23,9 +23,7 @@
   transform: translateY(0);
 }
 
-.category-filter {
-  flex-direction: row;
-}
+
 
 /* DROPDOWN CATEGORIE */
 .todo-filter {

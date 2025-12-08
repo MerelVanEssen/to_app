@@ -2,7 +2,8 @@ import { ToDo } from "./to_do.js";
 import { switchSides } from "./kubus.js"
 
 const todo = new ToDo();
-let listenerAdded = false
+let listenerAdded = false;
+let lastCategorie = "geen";
 
 function createBtn(className, id, textContent) {
 	const btn = document.createElement("button");
@@ -16,17 +17,42 @@ function fillDropdownCat() {
 	const select = document.getElementById("category-select");
 	const categories = todo.getCategories();
 	select.innerHTML = "";
+	
 	categories.forEach(cat => {
 		const option = document.createElement("option");
 		option.value = cat;
 		option.textContent = cat;
 		select.appendChild(option);
 	});
+	if (lastCategorie) {
+		select.value = lastCategorie;
+	}
 }
 
+function createTaskBts(todo, li, i, to_do_ul, finished_ul, complete) {
+	const btnContainer = document.createElement("div");
+	btnContainer.className = "task-buttons";
+	const deleteBtn = createBtn("delete-btn", "", "✖");
+	let completeBtn = null;
+	if (!complete) {
+		completeBtn = createBtn("complete-btn", "", "✔");
+		completeBtn.addEventListener('click', () => {
+			todo.markTaskCompleted(i);
+			to_do_ul.removeChild(li);
+			completeBtn.style.visibility = "hidden";
+			finished_ul.append(li);
+		});
+		btnContainer.appendChild(completeBtn);
+	}
+	deleteBtn.addEventListener('click', () => {
+		todo.removeTask(i);
+		li.remove()
+	});
+	btnContainer.appendChild(deleteBtn);
+	return btnContainer
+}
 // // Function to update the to-do list in the DOM
 export function addItemsToDo() {
-
 	const to_do_ul = document.getElementById("todo-list");
 	const finished_ul = document.getElementById("finished-list");
 	if (!to_do_ul || !finished_ul) return
@@ -36,35 +62,28 @@ export function addItemsToDo() {
 
 	const tasks = todo.getTasks();
 	tasks.forEach((taskObj, i) => {
-		console.log("task:", taskObj, "i: ", i )
-		const li = document.createElement("div")
-		const custom_li = document.createElement("div");
-		custom_li.className ="clickable-item";
-		custom_li.dataset.index = i
-		custom_li.textContent = taskObj.getTask() + "[" + taskObj.getCategorie() + "]";
+		const cat = taskObj.getCategorie();
+		if (lastCategorie == "geen" || lastCategorie == cat) {
+			const li = document.createElement("div")
+			li.className = "task-row";
+			li.style.align = "right";
+			const taskText = document.createElement("div");
+			taskText.className ="clickable-item";
+			taskText.dataset.index = i
+			taskText.textContent = taskObj.getTask() + " [" + taskObj.getCategorie() + "]";
 
-		if (taskObj.completed)
-			custom_li.style.textDecoration = "line-through";
+			taskText.addEventListener("click", () => {
+				switchSides(90, todo, taskText);	
+			});
 
-		const completeBtn = createBtn("complete-btn", "", "✔");
-		const deleteBtn = createBtn("delete-btn", "", "✖");
-		completeBtn.addEventListener('click', () => todo.markTaskCompleted(i));
-		deleteBtn.addEventListener('click', () => {
-			todo.removeTask(i);
-			li.remove()
-		});
+			const btnContainer = createTaskBts(todo, li, i, to_do_ul, finished_ul, taskObj.completed);
+			li.append(taskText, btnContainer);
 
-		custom_li.addEventListener("click", () => {
-			switchSides(90, todo, custom_li);	
-		});
-
-		li.append(custom_li, completeBtn, deleteBtn)
-
-		if (!taskObj.completed)
-			to_do_ul.appendChild(li);
-		else
-			finished_ul.appendChild(li)
-
+			if (!taskObj.completed)
+				to_do_ul.appendChild(li);
+			else
+				finished_ul.appendChild(li)
+		}
 	});
 }
 
@@ -79,8 +98,11 @@ function addListeners() {
 	const select_categorie_btn = document.getElementById("select-cat-btn")
 	if (select_categorie_btn) {
 		select_categorie_btn.addEventListener("click", () => {
-			const value = document.getElementById("category-select").value;
-
+			const selected = document.getElementById("category-select")
+			if (selected)
+				lastCategorie = selected.value;
+			console.log(selected.value);
+			addItemsToDo();
 		});
 	}
 	listenerAdded = true

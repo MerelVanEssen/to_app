@@ -23,6 +23,14 @@ export class ToDo {
 		this.toDoList.push(newTask);
 		this.saveToLocalStorage();
 	}
+
+	editTask(index, newTaskValue, newCategorie = 'geen') {
+		if (!this.toDoList[index]) return;
+		this.toDoList[index].task = newTaskValue;
+		this.toDoList[index].categorie = newCategorie;
+		this.saveToLocalStorage();
+	}
+
 	markTaskCompleted(index) {
 		if (index === undefined || index === null) {
 			console.log("no index given");
@@ -38,6 +46,13 @@ export class ToDo {
 	}
 
 	getTasks() { return this.toDoList; }
+
+	getTask(index) {
+		if (index === undefined || index === null) return;
+		if (index >= 0 && index < this.toDoList.length)
+			return this.toDoList[index];
+	}
+	
 	getCategories() { return this.categorieList; }
 
 	removeTask(index) {
@@ -52,6 +67,15 @@ export class ToDo {
 		if (this.toDoList.length == 0) {
 			this.toDoList.push(new Task("to do lijst vullen", "geen"))
 			localStorage.setItem("to_do_list", JSON.stringify(this.toDoList));
+		}
+	}
+
+	addCategorie(categorie) {
+		if (!this.categorieList.includes(categorie)) {
+			this.categorieList.push(categorie);
+			localStorage.setItem("categorie_list", JSON.stringify(this.categorieList)); // opslaan
+		} else {
+			console.log(`Categorie "${categorie}" bestaat al.`);
 		}
 	}
 }

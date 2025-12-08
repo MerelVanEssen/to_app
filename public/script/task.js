@@ -10,6 +10,5 @@ export class Task {
 	}
 	getTask() { return this.task }
 	getCategorie() { 
-		console.log(this)
 		return this.categorie }
 }
