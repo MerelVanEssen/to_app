@@ -1,9 +1,8 @@
 import { switchSides } from "./kubus.js"
 
-let listenerAdded = false
-
 function fillDropdownSelectCat(to_do) {
 	const select = document.getElementById("select-categorie");
+	if (!select) return console.log("element not found");
 	const categories = to_do.getCategories();
 	select.innerHTML = "";
 	
@@ -19,9 +18,10 @@ function saveTaskBtn(to_do) {
 	const saveBtn = document.getElementById('sla-op');
 
 	saveBtn.addEventListener('click', () => {
-		const taak = document.getElementById('add-taak')
+		const taak = document.getElementById('add-taak');
 		const categorie = document.getElementById('add-categorie');
-		
+		if (!taak || !categorie) return console.log("element not found");
+
 		const taakInput = taak.value.trim();
 		const categorieInput = categorie.value.trim() || 'alles';
 
@@ -30,9 +30,9 @@ function saveTaskBtn(to_do) {
 			return;
 		}
 		to_do.addTask(taakInput, categorieInput);
-		taak.value = ""
-		categorie.value = ""
-		switchSides(90);
+		taak.value = "";
+		categorie.value = "";
+		switchSides("back", to_do, []);
 	});
 }
 
@@ -40,7 +40,7 @@ function doNotSaveTaskBtn(to_do) {
 	const backBtn = document.getElementById('sla-niet-op');
 
 	backBtn.addEventListener('click', () => {
-		switchSides(90, to_do, []);
+		switchSides("back", to_do, []);
 	});
 }
 
@@ -49,25 +49,23 @@ function addCategorie(to_do) {
 	if (add_categorie_btn) {
 		add_categorie_btn.addEventListener("click", () => {
 			console.log("add categorie?");
-			const selected = document.getElementById("add-categorie")
-			if (!selected) return
-			console.log(selected.value);
+			const selected = document.getElementById("add-categorie");
+			if (!selected) return console.log("element not found");
+
 			to_do.addCategorie(selected.value);
-			fillDropdownSelectCat(to_do)
-			selected.value = ""
+			fillDropdownSelectCat(to_do);
+			selected.value = "";
 		});
 	}	
 }
 
 function addListeners(to_do) {
-	saveTaskBtn(to_do)
-	doNotSaveTaskBtn()
-	addCategorie(to_do)
-	listenerAdded = true
+	saveTaskBtn(to_do);
+	doNotSaveTaskBtn(to_do);
+	addCategorie(to_do);
 }
 
 export function loadNewSide(to_do) {
-	if (!listenerAdded)
-		addListeners(to_do)
-	fillDropdownSelectCat(to_do)
+	addListeners(to_do);
+	fillDropdownSelectCat(to_do);
 }

@@ -15,6 +15,8 @@ function createBtn(className, id, textContent) {
 
 function fillDropdownCat() {
 	const select = document.getElementById("category-select");
+	if (!select) return console.log("element not found");
+
 	const categories = todo.getCategories();
 	select.innerHTML = "";
 	
@@ -24,9 +26,8 @@ function fillDropdownCat() {
 		option.textContent = cat;
 		select.appendChild(option);
 	});
-	if (lastCategorie) {
+	if (lastCategorie)
 		select.value = lastCategorie;
-	}
 }
 
 function createTaskBts(todo, li, i, to_do_ul, finished_ul, complete) {
@@ -46,10 +47,10 @@ function createTaskBts(todo, li, i, to_do_ul, finished_ul, complete) {
 	}
 	deleteBtn.addEventListener('click', () => {
 		todo.removeTask(i);
-		li.remove()
+		li.remove();
 	});
 	btnContainer.appendChild(deleteBtn);
-	return btnContainer
+	return btnContainer;
 }
 
 
@@ -58,10 +59,10 @@ function createTaskBts(todo, li, i, to_do_ul, finished_ul, complete) {
 export function addItemsToDo() {
 	const to_do_ul = document.getElementById("todo-list");
 	const finished_ul = document.getElementById("finished-list");
-	if (!to_do_ul || !finished_ul) return
+	if (!to_do_ul || !finished_ul) return console.log("element not found");
 
 	to_do_ul.innerHTML = "";
-	finished_ul.innerHTML = ""
+	finished_ul.innerHTML = "";
 
 	const tasks = todo.getTasks();
 	tasks.forEach((taskObj, i) => {
@@ -70,12 +71,14 @@ export function addItemsToDo() {
 			const li = document.createElement("div")
 			li.className = "task-row";
 			li.style.align = "right";
+
 			const taskText = document.createElement("div");
 			taskText.className ="clickable-item";
 			taskText.dataset.index = i
 			taskText.textContent = taskObj.getTask() + " [" + taskObj.getCategorie() + "]";
+			
 			taskText.addEventListener("click", () => {
-				switchSides(90, todo, taskText);	
+				switchSides("task", todo, taskText);	
 			});
 
 			const btnContainer = createTaskBts(todo, li, i, to_do_ul, finished_ul, taskObj.completed);
@@ -91,28 +94,29 @@ export function addItemsToDo() {
 
 function addListeners() {
 	const new_task_btn = document.getElementById("nieuwe-taak")
-	if (new_task_btn) {
-		new_task_btn.addEventListener("click", () => {
-			switchSides(-90, todo);
-		});
-	}
+	if (!new_task_btn) return console.log("element not found");
+
+	new_task_btn.addEventListener("click", () => {
+		switchSides("new", todo);
+	});
 
 	const select_categorie_btn = document.getElementById("select-cat-btn")
-	if (select_categorie_btn) {
-		select_categorie_btn.addEventListener("click", () => {
-			const selected = document.getElementById("category-select")
-			if (selected)
-				lastCategorie = selected.value;
-			console.log(selected.value);
-			addItemsToDo();
-		});
-	}
+	if (!select_categorie_btn) return console.log("element not found");
+
+	select_categorie_btn.addEventListener("click", () => {
+		const selected = document.getElementById("category-select")
+		if (!selected) return console.log("element not found");
+		lastCategorie = selected.value;
+		console.log(selected.value);
+		addItemsToDo();
+	});
+
 	listenerAdded = true
 }
 
 export function loadMainSide() {
 	if (!listenerAdded)
-		addListeners()
-	fillDropdownCat()
+		addListeners();
+	fillDropdownCat();
 	addItemsToDo();
 }

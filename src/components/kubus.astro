@@ -9,18 +9,17 @@ import logo from '../assets/logo.webp';
 
 <div class="container">
 	<div id="cube" class="cube">
-		<div id="cube-shadow" class="cube-shadow"></div>
 		<div class="face front">
 			<MainKubus />
 		</div>
 		<div class="face back">
 			<Edit />
 		</div>
-		<div class="face right">
-			<NewTask/>
+		<div class="face right" id="right-face">
+			<NewTask />
+			<Task />
 		</div>
 		<div class="face left">
-			<Task />
 		</div>
 		<div class="face top">
 			
@@ -29,5 +28,4 @@ import logo from '../assets/logo.webp';
 			
 		</div>
 	</div>
-	
 </div>
