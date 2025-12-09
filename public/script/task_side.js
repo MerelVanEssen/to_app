@@ -13,7 +13,7 @@ function openTask(todo, li) {
 	if (taskObj.categorie)
 		cat.textContent = taskObj.categorie
 	else
-		cat.textContent = "geen"
+		cat.textContent = "alles"
 }
 
 function addListeners(to_do, li) {

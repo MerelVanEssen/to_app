@@ -3,7 +3,7 @@ import { switchSides } from "./kubus.js"
 
 const todo = new ToDo();
 let listenerAdded = false;
-let lastCategorie = "geen";
+let lastCategorie = "alles";
 
 function createBtn(className, id, textContent) {
 	const btn = document.createElement("button");
@@ -51,6 +51,9 @@ function createTaskBts(todo, li, i, to_do_ul, finished_ul, complete) {
 	btnContainer.appendChild(deleteBtn);
 	return btnContainer
 }
+
+
+
 // // Function to update the to-do list in the DOM
 export function addItemsToDo() {
 	const to_do_ul = document.getElementById("todo-list");
@@ -63,7 +66,7 @@ export function addItemsToDo() {
 	const tasks = todo.getTasks();
 	tasks.forEach((taskObj, i) => {
 		const cat = taskObj.getCategorie();
-		if (lastCategorie == "geen" || lastCategorie == cat) {
+		if (lastCategorie == "alles" || lastCategorie == cat) {
 			const li = document.createElement("div")
 			li.className = "task-row";
 			li.style.align = "right";
@@ -71,7 +74,6 @@ export function addItemsToDo() {
 			taskText.className ="clickable-item";
 			taskText.dataset.index = i
 			taskText.textContent = taskObj.getTask() + " [" + taskObj.getCategorie() + "]";
-
 			taskText.addEventListener("click", () => {
 				switchSides(90, todo, taskText);	
 			});
@@ -114,16 +116,3 @@ export function loadMainSide() {
 	fillDropdownCat()
 	addItemsToDo();
 }
-
-// // ----------- EVENT LISTENERS -----------
-
-// // Event listeners for adding tasks after pressing the add button
-// document.getElementById("add-task-btn").addEventListener("click", () => {
-// 	const value = document.getElementById("task-input").value.trim();
-// 	const categorie = document.getElementById("categorie-input").value.trim();
-// 	if (value.length === 0)
-// 		return;
-// 	todo.addTask(value, categorie);
-// 	document.getElementById("task-input").value = "";
-// 	updateToDoList(todo);
-// });

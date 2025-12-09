@@ -5,26 +5,26 @@ export class ToDo {
 		this.toDoList = [];
 		this.categorieList = [];
 		if (!localStorage.getItem("categorie_list")) {
-			this.categorieList = ['geen', 'werk', 'persoonlijk', 'school'];
+			this.categorieList = ["alles", "werk", "persoonlijk", "school"];
 			localStorage.setItem("categorie_list", JSON.stringify(this.categorieList));
 		} else {
 			this.categorieList = JSON.parse(localStorage.getItem("categorie_list"));
 		}
 		if (!localStorage.getItem("to_do_list")) {
-			this.toDoList.push(new Task("to do lijst vullen", "geen"))
+			this.toDoList.push(new Task("voorbeeld", "werk"))
 			localStorage.setItem("to_do_list", JSON.stringify(this.toDoList));
 		} else {
 			this.toDoList = JSON.parse(localStorage.getItem("to_do_list")).map(t => new Task(t.task, t.categorie, t.completed));
 		}
 	}
 
-	addTask(taskInput, categorieInput='geen') {
+	addTask(taskInput, categorieInput="alles") {
 		const newTask = new Task(taskInput, categorieInput)
 		this.toDoList.push(newTask);
 		this.saveToLocalStorage();
 	}
 
-	editTask(index, newTaskValue, newCategorie = 'geen') {
+	editTask(index, newTaskValue, newCategorie = "alles") {
 		if (!this.toDoList[index]) return;
 		this.toDoList[index].task = newTaskValue;
 		this.toDoList[index].categorie = newCategorie;
@@ -65,7 +65,7 @@ export class ToDo {
 			this.saveToLocalStorage();
 		}
 		if (this.toDoList.length == 0) {
-			this.toDoList.push(new Task("to do lijst vullen", "geen"))
+			this.toDoList.push(new Task("voorbeeld", "werk"))
 			localStorage.setItem("to_do_list", JSON.stringify(this.toDoList));
 		}
 	}
@@ -73,7 +73,7 @@ export class ToDo {
 	addCategorie(categorie) {
 		if (!this.categorieList.includes(categorie)) {
 			this.categorieList.push(categorie);
-			localStorage.setItem("categorie_list", JSON.stringify(this.categorieList)); // opslaan
+			localStorage.setItem("categorie_list", JSON.stringify(this.categorieList));
 		} else {
 			console.log(`Categorie "${categorie}" bestaat al.`);
 		}

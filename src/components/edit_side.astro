@@ -4,23 +4,18 @@ import "../styles/global.css";
 ---
 
 <section class="frame">
-	<div class="innerframe">
-		<div class="column-wrapper">
+	<section class="innerframe">
+		<div class="input-wrapper">
 			<p>Taak:</p>
 			<input type="text" id="edit-task" class="input" placeholder="taaknaam">
 		</div>
-		<div class="column-wrapper">
+		<div class="input-wrapper">
 			<p>Selecteer een categorie</p>
 			<select id="edit-category">Kies een categorie:</select>
 		</div>
-		<div class="column-wrapper">
-			<p>of voeg toe:</p>
-			<input type="text" id="add-categorie" placeholder="nieuwe categorie">
-			<button id="add-cat-btn">Voeg toe</button>
-		</div>
-		<div class="column-wrapper">
-			<button class="btn" id="edit-task-btn" class="btn">PAS AAN</button>
-			<button class="btn" id="edit-niet-btn" class="btn">TERUG</button>
-		</div>
+	</section>
+	<div class="button-wrapper">
+		<button class="btn" id="edit-task-btn" class="btn">PAS AAN</button>
+		<button class="btn" id="edit-niet-btn" class="btn">TERUG</button>
 	</div>
 </section>

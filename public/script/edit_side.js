@@ -15,7 +15,7 @@ function addListeners(to_do, li) {
 		const categorie = document.getElementById('edit-category');
 		
 		const taakInput = taak.value.trim();
-		const categorieInput = categorie.value.trim() || 'geen';
+		const categorieInput = categorie.value.trim() || 'alles';
 		if (!taakInput) {
 			alert("Voer een taak in!");
 			return;
@@ -32,16 +32,32 @@ function addListeners(to_do, li) {
 function fillInOldInformation(to_do, li) {
 	const task = to_do.getTask(li.dataset.index);
 	if (!task) return
-
+	console.log("filling?")
 	const taakInput = document.getElementById('edit-task');
 	const categorieSelect = document.getElementById('edit-category');
-	taakInput.placeholder = task.getTask();
+	console.log(task.getTask())
+	taakInput.value = task.getTask();
 	categorieSelect.value = task.getCategorie();
+}
+
+function fillDropdownCat(to_do) {
+	const select = document.getElementById("edit-category");
+	const categories = to_do.getCategories();
+	select.innerHTML = "";
+	if (!select) return;
+	categories.forEach(cat => {
+		const option = document.createElement("option");
+		option.value = cat;
+		option.textContent = cat;
+		select.appendChild(option);
+	});
 }
 
 export function loadEditSide(to_do, li) {
 	if (!listenerAdded) {
 		addListeners(to_do, li);
+		listenerAdded = true;
 	}
-	fillInOldInformation(to_do, li)
+	fillInOldInformation(to_do, li);
+	fillDropdownCat(to_do);
 }

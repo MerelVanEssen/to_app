@@ -5,7 +5,7 @@ export class Task {
 		if (categorie)
 			this.categorie = categorie;
 		else
-			this.categorie = "geen"
+			this.categorie = "alles"
 		this.completed = completed;
 	}
 	getTask() { return this.task }

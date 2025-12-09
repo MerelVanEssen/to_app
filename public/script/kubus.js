@@ -8,9 +8,15 @@ let angle = 0;
 // left = 90 / right = -90
 export function switchSides(turn, to_do, arg) {
 	const cube = document.getElementById("cube");
+	const shadow = document.getElementById("cube-shadow");
+
 	angle += turn
 	if (cube)
 		cube.style.transform = `rotateY(${angle}deg)`;
+	if (shadow) {
+		shadow.style.transform = `translateX(-50%) rotateX(90deg)`;
+	}
+
 	if (angle == 0) {
 		console.log("open main side");
 		loadMainSide()

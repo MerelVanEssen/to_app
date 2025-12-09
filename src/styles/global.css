@@ -15,9 +15,12 @@
   --color-button-mint: #36f2aa;
   --font-family: Rubik, serif;
   --font-feature-settings: normal;
-  --font-size: 16px;
+  --font-size: clamp(14px, 2vw, 24px);
   --font-variation-settings: normal;
   --font-weight: 400;
-  --cube-size: clamp(300px, 50vw, 600px);
+  /* --cube-size: clamp(300px, 50vw, 600px); */
+  /* --cube-size: min(80vw, 80vh); */
+  --cube-size: min(50vw, 50vh);
+  
 }
 

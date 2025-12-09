@@ -1,6 +1,5 @@
 import { switchSides } from "./kubus.js"
 
-
 let listenerAdded = false
 
 function fillDropdownSelectCat(to_do) {
@@ -24,7 +23,7 @@ function saveTaskBtn(to_do) {
 		const categorie = document.getElementById('add-categorie');
 		
 		const taakInput = taak.value.trim();
-		const categorieInput = categorie.value.trim() || 'geen';
+		const categorieInput = categorie.value.trim() || 'alles';
 
 		if (!taakInput) {
 			alert("Voer een taak in!");
@@ -49,11 +48,13 @@ function addCategorie(to_do) {
 	const add_categorie_btn = document.getElementById("add-cat-btn")
 	if (add_categorie_btn) {
 		add_categorie_btn.addEventListener("click", () => {
+			console.log("add categorie?");
 			const selected = document.getElementById("add-categorie")
 			if (!selected) return
 			console.log(selected.value);
 			to_do.addCategorie(selected.value);
 			fillDropdownSelectCat(to_do)
+			selected.value = ""
 		});
 	}	
 }

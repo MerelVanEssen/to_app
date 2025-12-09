@@ -6,7 +6,7 @@
     display: flex;          /* belangrijk! */
     flex-direction: row;    /* horizontaal */
     align-items: center;    /* verticale centrering */
-    gap: 10px;              /* ruimte tussen inputs en button */
+    gap: 1rem;              /* ruimte tussen inputs en button */
 }
 
 #input-container {
@@ -14,7 +14,7 @@
     display: flex;          /* inputs naast elkaar */
 	flex-direction: column;
     flex: 1;                /* neemt zoveel mogelijk ruimte in */
-    gap: 10px;
+    gap: 1rem;
 }
 
 #input-container:hover #dropdown-categorie {
