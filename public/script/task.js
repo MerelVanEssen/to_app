@@ -15,7 +15,7 @@ export class Task {
 		if (categorie)
 			this.categorie = categorie;
 		else
-			this.categorie = "alles"
+			this.categorie = 'geen'
 		this.completed = completed;
 		this.date = getFormattedDate();
 	}

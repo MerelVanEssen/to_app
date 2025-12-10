@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
 @import "./layout.css";
-@import "./categorie.css";
 @import "./task.css";
 @import "./kubus.css";
 @import "./main.css";
@@ -13,14 +12,17 @@
   --color-accent: #E46FF4;
   --color-button-pink: #fd3e81;
   --color-button-mint: #36f2aa;
-  --font-family: Rubik, serif;
   --font-feature-settings: normal;
-  --font-size: clamp(14px, 2vw, 24px);
+  --font-size: 12px;
   --font-variation-settings: normal;
   --font-weight: 400;
-  /* --cube-size: clamp(300px, 50vw, 600px); */
-  /* --cube-size: min(80vw, 80vh); */
   --cube-size: min(50vw, 50vh);
-  
+  --font-family: Tomorrow, sans-serif;
 }
 
+@media (max-width: 600px) {
+  :root {
+    --cube-size: 80vw;
+    --font-size: 8px;
+  }
+}

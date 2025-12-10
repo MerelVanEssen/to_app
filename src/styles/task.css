@@ -5,29 +5,28 @@ TASK
 -current-task
 -task-block
 -current-cat
--terug-menu
+-back-menu
 */
 
 .task-block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid var(--color-secondary);
-  border-radius: 0.5rem;
-  padding: 2px 5px;
-  text-align: center;
-  flex: 1 1 auto;
-  min-height: 0;
-  width: 100%;
-  box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid var(--color-secondary);
+	border-radius: 0.5rem;
+	text-align: center;
+	min-height: 0;
+	width: 100%;
+	margin: 1px;
+	box-sizing: border-box;
 }
 
 .task-block p {
-  font-weight: bold;
+	font-weight: bold;
 }
-
 
 .info-field {
 	width: 100%;
 	text-align: center;
+	font-family: var(--font-family);
 }

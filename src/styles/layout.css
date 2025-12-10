@@ -9,15 +9,18 @@ html, body {
 h1 {
 	font-family: var(--font-family);
 	font-weight: bold;
-	font-size: 2.5rem;
 	color: white;
 	margin-bottom: 1rem;
+}
+
+h3 {
+	font-family: Tomorrow, sans-serif
 }
 
 p {
 	font-family: var(--font-family);
 	font-weight: var(--font-weight);
-	font-size: clamp(12px, 2vw, 24px);
+	font-size: var(--font-size);
 	color: black;
 	margin-bottom: 1rem;
 }
@@ -48,7 +51,7 @@ p {
 	border-radius: 999px;
 	padding: 0.3rem 1rem 0.3rem 1rem;
 	margin: 0.5rem;
-	font-size: 1.2rem;
+	font-size: var(--font-size);
 	font-weight: bold;
 	border-radius: 1rem;
 	cursor: pointer;
@@ -72,4 +75,13 @@ p {
 	width: 100%;
 	gap: 1rem;
 	justify-content: center;
+}
+
+.input-wrapper {
+	align-items: start;
+	display: flex;
+}
+
+.p-wrapper p {
+    text-align: left;
 }

@@ -1,26 +1,32 @@
 ---
 import logo from '../assets/logo.webp';
-import "../styles/global.css";
+import '../styles/global.css';
 ---
 
-<section class="frame" id="new-side">
-	<section class="innerframe">
-		<div class="input-wrapper">
-			<p>Nieuwe taak:</p>
-			<input type="text" id="add-taak" class="input" placeholder="taaknaam">
+<section class='frame' id='new-side'>
+	<section class='innerframe'>
+		<div id="p-wrapper">
+			<p>Nieuwe taak</p>
 		</div>
-		<div class="input-wrapper">
+		<div class='input-wrapper'>
+			<input type='text' id='add-taak' class='input' placeholder='taaknaam'>
+		</div>
+		<div id="p-wrapper">
 			<p>Selecteer een categorie</p>
-			<select id="select-categorie">Kies een categorie:</select>
 		</div>
-		<div class="input-wrapper">
-			<p>of voeg toe:</p>
-			<input type="text" id="add-categorie" placeholder="nieuwe categorie">
-			<button id="add-cat-btn">Voeg toe</button>
+		<div class='input-wrapper'>
+			<select id='select-categorie'>Kies een categorie:</select>
+		</div>
+		<div id="p-wrapper">
+			<p>of voeg eerst toe</p>
+		</div>
+		<div class='input-wrapper'>
+			<input type='text' id='add-categorie' placeholder='nieuwe categorie'>
+			<button id='add-cat-btn'>Voeg toe</button>
 		</div>
 	</section>
-	<div class="button-wrapper">
-		<button id="sla-op" class="btn">SLA OP</button>
-		<button id="sla-niet-op" class="btn">TERUG</button>
+	<div class='button-wrapper'>
+		<button id='back-save' class='btn'>SLA OP</button>
+		<button id='back-not-save' class='btn'>TERUG</button>
 	</div>
 </section>
