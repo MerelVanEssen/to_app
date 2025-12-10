@@ -73,8 +73,10 @@ function addCategorie(to_do) {
 				alert("Deze categorienaam is te lang");
 				return;
 			}
-			to_do.addCategorie(selected.value);
+			const categorie = document.getElementById('select-categorie');
+			to_do.addCategorie(value);
 			fillDropdownSelectCat(to_do);
+			categorie.value = value;
 			selected.value = '';
 		});
 	}	
@@ -84,6 +86,7 @@ function addListeners(to_do) {
 	saveTaskBtn(to_do);
 	doNotSaveTaskBtn(to_do);
 	addCategorie(to_do);
+	listenerAdded = true;
 }
 
 export function loadNewSide(to_do) {

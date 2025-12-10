@@ -9,4 +9,14 @@ NEW
 .input {
 	background-color: white;
 	text-align: center;
+	transform: translateY(3px);
+}
+
+#add-cat-btn {
+	background-color: var(--color-primary);
+	border: none;
+	font-size: var(--font-size);
+	border-radius: 1rem;
+	cursor: pointer;
+	color: white;
 }

@@ -29,13 +29,12 @@ main
   gap: 1rem;
 }
 
-#category-select {
-	background-color: white;
-	padding: 0.1rem;
-}
-
 #select-cat-btn {
-	background-color: white;
+	background-color: var(--color-primary);
+	border-radius: 10px;
+	color: white;
+	cursor: pointer;
+	border: none;
 }
 
 .list-block {

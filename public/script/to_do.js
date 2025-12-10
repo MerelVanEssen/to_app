@@ -1,12 +1,47 @@
 import { Task } from './task.js';
 
+function introduction() {
+	const app = document.getElementById('app'); 
+	const intro = document.createElement('div');
+	intro.id = 'intro';
+	const box = document.createElement('div');
+	box.className = 'intro-box';
+	const lines = [
+		"🎯 Maak een nieuwe taak aan en kies een categorie.",
+		"👀 Klik op een taak om hem te bekijken.",
+		"✏️ Je kunt een taak ook bewerken als dat nodig is.",
+		"✅ Klaar met een taak? Druk op 'V' om hem af te vinken.",
+		"❌ Wil je een taak verwijderen? Druk op 'X'."
+	];
+
+	lines.forEach(line => {
+		const p = document.createElement('p');
+		p.textContent = line;
+		p.className = "intro-text";
+		box.appendChild(p);
+	});
+
+	const intro_btn = document.createElement('button');
+	intro_btn.className = 'btn';
+	intro_btn.textContent = `LET'S GO!`;
+	intro_btn.addEventListener('click', () => {
+		intro.remove();
+	});
+	box.appendChild(intro_btn);
+	intro.appendChild(box);
+	app.appendChild(intro);
+}
+
+
 export class ToDo {
 	constructor() {
 		this.toDoList = [];
 		this.categorieList = [];
+		introduction();
 		if (!localStorage.getItem('categorie_list')) {
 			this.categorieList = ['geen', 'werk', 'persoonlijk', 'school'];
 			localStorage.setItem('categorie_list', JSON.stringify(this.categorieList));
+			
 		} else {
 			this.categorieList = JSON.parse(localStorage.getItem('categorie_list'));
 		}
@@ -61,7 +96,7 @@ export class ToDo {
 			return;
 		}
 		if (index >= 0 && index < this.toDoList.length) {
-    		this.toDoList.splice(index, 1);
+			this.toDoList.splice(index, 1);
 			this.saveToLocalStorage();
 		}
 		if (this.toDoList.length == 0) {

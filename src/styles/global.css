@@ -3,6 +3,7 @@
 @import "./task.css";
 @import "./kubus.css";
 @import "./main.css";
+@import "./new_task.css";
 
 :root {
   --color-primary: #630f8e;
