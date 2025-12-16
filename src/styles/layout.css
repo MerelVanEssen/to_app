@@ -102,12 +102,19 @@ p {
 	background: var(--color-background);
 	padding: 40px 60px;
 	border-radius: 20px;
+	box-sizing: border-box;
 	box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
 	color: white;
 	text-align: center;
 	width: 80%;
 	max-width: 400px;
 	animation: fadeIn 0.8s ease-out;
+}
+
+@media (max-width: 480px) {
+	.intro-box {
+		padding: 20px;
+	}
 }
 
 .intro-text {

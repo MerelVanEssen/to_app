@@ -72,6 +72,7 @@ main
 	transition: background 0.2s, transform 0.1s;
 	font-family: var(--font-family);
 	font-weight: var(--font-size);
+	font-size: clamp(0.8rem, 2.5vw, 1rem);
 	margin: 0.2rem;
 }
 
