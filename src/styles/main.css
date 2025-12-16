@@ -59,11 +59,11 @@ main
 	list-style: none;
 	padding: 0;
 	width: 100%;
-	/* height: auto; */
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
-	/* overflow-x: hidden; */
 	box-sizing: border-box;
+	touch-action: pan-y;
+	overscroll-behavior: contain;
 }
 
 /* TASK ITEMS */
@@ -72,7 +72,6 @@ main
 	cursor: pointer;
 	transition: background 0.2s, transform 0.1s;
 	font-family: var(--font-family);
-	font-weight: var(--font-size);
 	font-size: clamp(0.8rem, 2.5vw, 1rem);
 	margin: 0.2rem;
 }

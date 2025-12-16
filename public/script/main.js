@@ -89,7 +89,7 @@ export function addItemsToDo() {
 	tasks.forEach((taskObj, i) => {
 		const cat = taskObj.getCategorie();
 		if (lastCategorie == 'alle' || lastCategorie == cat) {
-			const li = document.createElement('div')
+			const li = document.createElement('li')
 			li.className = 'task-row';
 			li.style.align = 'right';
 
