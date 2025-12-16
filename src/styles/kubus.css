@@ -5,7 +5,6 @@
 	perspective: 1000px;
 	max-width: 90vh;
 	max-height: 90vh;
-	overflow: hidden;
 }
 
 .cube {
