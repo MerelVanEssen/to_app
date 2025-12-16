@@ -15,8 +15,13 @@ function createBtn(className, id, textContent) {
 	btn.style.height = '1rem';
 	btn.style.width = '1rem';
 	btn.style.display = 'flex';
-	btn.style.alignContent = 'center';
+	btn.style.alignItems = 'center';
 	btn.style.justifyContent = 'center';
+	btn.style.padding = '0';
+	btn.style.border = 'none';
+	btn.style.lineHeight = '1';
+	btn.style.fontSize = '0.75rem';
+	btn.style.fontFamily = 'inherit';
 	return btn
 }
 
