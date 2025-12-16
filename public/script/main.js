@@ -123,7 +123,21 @@ function addListeners() {
 		console.log(selected.value);
 		addItemsToDo();
 	});
+	const btnUp = document.getElementById('up1');
+	const btnDown = document.getElementById('down1');
+	const list = document.getElementById('todo-list');
 
+	btnDown.addEventListener('click', () => {
+		list.scrollTo({ top: list.offsetHeight,
+		left: 0,
+		behavior: "smooth"})
+	})
+	
+	btnUp.addEventListener('click', () => {
+		list.scrollTo({  top: 0,
+			left: 0,
+			behavior: "smooth"})
+	})
 	listenerAdded = true
 }
 
