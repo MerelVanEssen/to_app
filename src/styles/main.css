@@ -126,3 +126,9 @@ main
 	background-color: var(--color-secondary);
 	border-radius: 10px;
 }
+
+.updownbtns {
+	background-color: white;
+	border: none;
+	cursor: pointer;
+}

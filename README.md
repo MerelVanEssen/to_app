@@ -26,3 +26,4 @@
 # verbeteringen
 opslag checken
 styling faces block
+scrollbar aanpassen aan hoeveelheid items
