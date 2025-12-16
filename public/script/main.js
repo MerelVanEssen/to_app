@@ -69,13 +69,6 @@ function createTaskBts(todo, li, i, to_do_ul, finished_ul, complete) {
 	return btnContainer;
 }
 
-function textWidth(text, font = '11px serif') {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    context.font = font;
-    const metrics = context.measureText(text);
-    return metrics.width;
-}
 // // Function to update the to-do list in the DOM
 export function addItemsToDo() {
 	const to_do_ul = document.getElementById('todo-list');
@@ -96,13 +89,7 @@ export function addItemsToDo() {
 			const taskText = document.createElement('div');
 			taskText.className ='clickable-item';
 			taskText.dataset.index = i
-			let text = taskObj.getTask();
-			if (textWidth(text) > 50) {
-				text.slice(0, 8);
-				text = text + '.';
-			}
-			console.log(text, textWidth(text));
-			taskText.textContent = text;
+			taskText.textContent = taskObj.getTask();
 			taskText.addEventListener('click', () => {
 				switchSides('task', -90, todo, taskText);	
 			});

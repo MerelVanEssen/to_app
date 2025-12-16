@@ -64,6 +64,7 @@ main
 	box-sizing: border-box;
 	touch-action: pan-y;
 	overscroll-behavior: contain;
+	
 }
 
 /* TASK ITEMS */
@@ -74,6 +75,9 @@ main
 	font-family: var(--font-family);
 	font-size: clamp(0.8rem, 2.5vw, 1rem);
 	margin: 0.2rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .clickable-item:hover {
@@ -86,6 +90,7 @@ main
 	align-items: center;
 	justify-content: space-between;
 	gap: 0.5rem;
+	transform: none;
 }
 
 .task-text {
