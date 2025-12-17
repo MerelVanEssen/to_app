@@ -82,7 +82,7 @@ function checkUpDownBts(list, item, amount)	{
 	}
 }
 
-// // Function to update the to-do list in the DOM
+// Function to update the to-do list in the DOM
 export function addItemsToDo() {
 	const to_do_ul = document.getElementById('todo-list');
 	const finished_ul = document.getElementById('finished-list');
@@ -146,18 +146,20 @@ function addListeners() {
 	const list = document.getElementById('todo-list');
 
 	btnDown.addEventListener('click', () => {
-		list.scrollTo({ top: list.offsetHeight,
-		left: 0,
-		behavior: "smooth"})
+		list.scrollBy({
+			top: list.clientHeight,
+			behavior: "smooth"
+		});
 	})
 	
 	btnUp.addEventListener('click', () => {
-		list.scrollTo({  top: 0,
-			left: 0,
-			behavior: "smooth"})
-	})
+		list.scrollBy({
+			top: -list.clientHeight,
+			behavior: "smooth"
+		})
+	});
 	listenerAdded = true
-}
+};
 
 export function loadMainSide() {
 	if (!listenerAdded)

@@ -26,4 +26,4 @@
 # verbeteringen
 opslag checken
 styling faces block
-scrollbar aanpassen aan hoeveelheid items
+touch screen voor mobiel (conflict met 3d transform)
