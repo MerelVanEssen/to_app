@@ -129,6 +129,12 @@ main
 
 .updownbtns {
 	background-color: white;
+	color: var(--color-secondary);
 	border: none;
 	cursor: pointer;
 }
+
+#wrapper-updown {
+	justify-content: right;
+}
+

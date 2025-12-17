@@ -69,6 +69,19 @@ function createTaskBts(todo, li, i, to_do_ul, finished_ul, complete) {
 	return btnContainer;
 }
 
+function checkUpDownBts(list, item, amount)	{
+	const btnUp = document.getElementById('up1');
+	const btnDown = document.getElementById('down1');
+
+	if (amount * item.offsetHeight > list.offsetHeight) {
+		btnUp.style.visibility = 'visible';
+		btnDown.style.visibility = 'visible'
+	} else {
+		btnUp.style.visibility = 'hidden';
+		btnDown.style.visibility = 'hidden'
+	}
+}
+
 // // Function to update the to-do list in the DOM
 export function addItemsToDo() {
 	const to_do_ul = document.getElementById('todo-list');
@@ -79,6 +92,8 @@ export function addItemsToDo() {
 	finished_ul.innerHTML = '';
 
 	const tasks = todo.getTasks();
+	let lastItem = null;
+	let amount = 0;
 	tasks.forEach((taskObj, i) => {
 		const cat = taskObj.getCategorie();
 		if (lastCategorie == 'alle' || lastCategorie == cat) {
@@ -97,11 +112,14 @@ export function addItemsToDo() {
 			const btnContainer = createTaskBts(todo, li, i, to_do_ul, finished_ul, taskObj.completed);
 			li.append(taskText, btnContainer);
 
-			if (!taskObj.completed)
+			if (!taskObj.completed) {
 				to_do_ul.appendChild(li);
-			else
+				amount++;
+			} else
 				finished_ul.appendChild(li)
+			lastItem = li;
 		}
+		checkUpDownBts(to_do_ul, lastItem, amount);
 	});
 }
 
@@ -144,6 +162,7 @@ function addListeners() {
 export function loadMainSide() {
 	if (!listenerAdded)
 		addListeners();
+
 	fillDropdownCat();
 	addItemsToDo();
 }
